@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¿Cuánto tengo que cobrar? | Seguridad CCT 507/07</title>
+<style>
+:root{--p:#123c69;--a:#087f78;--bg:#f4f6f8;--card:#fff;--line:#d9e1e8;--txt:#17202a;--mut:#66727e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:Arial,sans-serif}header{background:linear-gradient(135deg,#102a43,#176b87);color:#fff;padding:28px 16px;text-align:center}header h1{margin:0 0 8px;font-size:28px}header p{margin:0}.wrap{max-width:1100px;margin:20px auto;padding:0 14px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 4px 15px #0000000a}h2{margin:0 0 16px;color:var(--p);font-size:19px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-size:13px;font-weight:700}input,select{padding:11px;border:1px solid #c9d3dd;border-radius:10px;font-size:15px;background:#fff}.hint{font-size:12px;color:var(--mut)}.notice{background:#eef6ff;border:1px solid #cfe2f5;border-radius:10px;padding:12px;font-size:13px}.warn{background:#fff7ed;border-color:#fed7aa}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}.primary{background:var(--p);color:#fff}.green{background:var(--a);color:#fff}.light{background:#e9eef3;color:var(--txt)}.hidden{display:none}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric{padding:14px;border:1px solid var(--line);border-radius:12px;background:#f8fafb}.metric span{display:block;color:var(--mut);font-size:12px}.metric strong{display:block;font-size:20px;margin-top:5px}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{background:#f6f8fa}.num{text-align:right}.total{font-size:26px!important}.hist{padding:10px 0;border-bottom:1px solid var(--line)}@media(max-width:760px){.grid,.metrics{grid-template-columns:1fr}header h1{font-size:23px}.card{padding:16px}}
+</style></head>
+<body>
+<header><h1>¿Cuánto tengo que cobrar?</h1><p>Calculadora PRO — Seguridad Privada CCT 507/07</p></header>
+<div class="wrap">
+<section class="card"><h2>1. Datos básicos</h2><div class="grid">
+<div class="field"><label>Período</label><input id="periodo" type="month"></div>
+<div class="field"><label>Categoría</label><input id="categoria" placeholder="Ej.: Vigilador General"></div>
+<div class="field"><label>Sueldo básico</label><input id="basico" type="number" min="0" step="0.01"></div>
+<div class="field"><label>Años de antigüedad</label><input id="antiguedad" type="number" min="0" value="0"></div>
+<div class="field"><label>Horas normales</label><input id="horasNormales" type="number" min="0" value="0"></div>
+<div class="field"><label>Horas nocturnas</label><input id="horasNocturnas" type="number" min="0" value="0"></div>
+</div></section>
+
+<section class="card"><h2>2. Puerto / Aeropuerto — Plus especial</h2><div class="grid">
+<div class="field"><label>Lugar de trabajo</label><select id="lugar"><option value="general">Seguridad general</option><option value="puerto">⚓ Puerto</option><option value="aeropuerto">✈️ Aeropuerto</option><option value="otro">Otro plus</option></select></div>
+<div class="field"><label>Tipo de plus</label><select id="tipoPlus"><option value="fijo">Monto fijo mensual</option><option value="hora">Monto por hora</option><option value="porcentaje">Porcentaje del básico</option></select></div>
+<div class="field"><label>Valor del plus</label><input id="plusValor" type="number" min="0" value="0"></div>
+<div class="field"><label>Tratamiento del plus</label><select id="plusRem"><option value="si">Remunerativo</option><option value="no">No remunerativo</option></select></div>
+</div><p class="notice">Ingresá el plus que realmente cobrás. El sistema permite fijo, por hora o porcentaje. Verificá en tu recibo si es remunerativo o no remunerativo.</p></section>
+
+<section class="card"><h2>3. Jornada y adicionales</h2><div class="grid">
+<div class="field"><label>Horas extras 50%</label><input id="extra50" type="number" min="0" value="0"></div>
+<div class="field"><label>Horas extras 100%</label><input id="extra100" type="number" min="0" value="0"></div>
+<div class="field"><label>Horas de feriado</label><input id="feriadoHoras" type="number" min="0" value="0"></div>
+<div class="field"><label>Presentismo</label><input id="presentismo" type="number" min="0" value="0"></div>
+<div class="field"><label>Viáticos</label><input id="viaticos" type="number" min="0" value="0"></div>
+<div class="field"><label>Otros remunerativos</label><input id="otrosRem" type="number" min="0" value="0"></div>
+<div class="field"><label>Adicional no remunerativo</label><input id="adicionalNoRem" type="number" min="0" value="0"></div>
+<div class="field"><label>Otros no remunerativos</label><input id="otrosNoRem" type="number" min="0" value="0"></div>
+</div></section>
+
+<section class="card"><h2>4. Vacaciones y plus vacacional</h2><div class="grid">
+<div class="field"><label>Días correspondientes</label><input id="diasVac" type="number" min="0" value="0"></div>
+<div class="field"><label>Días tomados</label><input id="diasVacTomados" type="number" min="0" value="0"></div>
+<div class="field"><label>Valor diario (opcional)</label><input id="valorDiario" type="number" min="0" value="0"></div>
+<div class="field"><label>Plus vacacional manual</label><input id="plusVacManual" type="number" min="0" value="0"></div>
+</div><p class="notice">Si no ingresás valor diario, se estima con básico ÷ 25. El cálculo debe contrastarse con la liquidación real.</p></section>
+
+<section class="card"><h2>5. Suspensiones</h2><div class="grid">
+<div class="field"><label>Días suspendidos</label><input id="diasSusp" type="number" min="0" value="0"></div>
+<div class="field"><label>Horas suspendidas</label><input id="horasSusp" type="number" min="0" value="0"></div>
+<div class="field"><label>Días base del mes</label><input id="diasBase" type="number" min="1" value="30"></div>
+<div class="field"><label>Horas base del mes</label><input id="horasBase" type="number" min="1" value="200"></div>
+<div class="field"><label>Presentismo por suspensión</label><select id="descPres"><option value="no">No descontar</option><option value="si">Descontar proporcionalmente</option></select></div>
+<div class="field"><label>Descuento manual</label><input id="descManual" type="number" min="0" value="0"></div>
+</div></section>
+
+<section class="card"><h2>6. Descuentos configurables</h2><div class="grid">
+<div class="field"><label>Jubilación (%)</label><input id="jub" type="number" step="0.01" value="11"></div>
+<div class="field"><label>Obra social (%)</label><input id="os" type="number" step="0.01" value="3"></div>
+<div class="field"><label>Otro aporte (%)</label><input id="otroPct" type="number" step="0.01" value="0"></div>
+<div class="field"><label>UPSRA / solidario ($)</label><input id="upsra" type="number" min="0" value="0"></div>
+<div class="field"><label>Otros descuentos ($)</label><input id="otrosDesc" type="number" min="0" value="0"></div>
+<div class="field"><label>Descuento adicional sobre remunerativo (%)</label><input id="descPct" type="number" step="0.01" value="0"></div>
+</div><p class="notice warn">Los porcentajes son editables. La herramienta es orientativa: verificá convenio, recibo y normativa vigente antes de reclamar diferencias.</p></section>
+
+<div class="actions"><button class="btn primary" onclick="calcular()">🧮 CALCULAR</button><button class="btn green" onclick="guardar()">💾 GUARDAR</button><button class="btn light" onclick="window.print()">🖨️ IMPRIMIR</button><button class="btn light" onclick="nuevo()">🔄 NUEVA</button></div>
+
+<section id="resultado" class="card hidden"><h2>7. Liquidación estimada</h2><div class="metrics"><div class="metric"><span>Total remunerativo</span><strong id="rRem">$0</strong></div><div class="metric"><span>No remunerativo</span><strong id="rNo">$0</strong></div><div class="metric"><span>Total descuentos</span><strong id="rDesc">$0</strong></div><div class="metric"><span>Neto estimado</span><strong class="total" id="rNeto">$0</strong></div></div><h2 style="margin-top:22px">Detalle</h2><table><thead><tr><th>Concepto</th><th class="num">Importe</th><th>Tratamiento</th></tr></thead><tbody id="detalle"></tbody></table></section>
+
+<section class="card"><h2>8. Comparar con el recibo</h2><div class="grid"><div class="field"><label>Neto cobrado según recibo</label><input id="netoRecibo" type="number" min="0" value="0"></div></div><div id="comparacion" class="notice" style="margin-top:12px">Calculá la liquidación y luego ingresá el neto del recibo.</div></section>
+<section class="card"><h2>9. Historial</h2><div id="historial">No hay liquidaciones guardadas.</div></section>
+</div>
+<script>
+const $=id=>document.getElementById(id), N=id=>Number($(id).value)||0, money=x=>new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS'}).format(x);
+function row(a,n,t){return [a,n,t]}
+function calcular(){
+ const bas=N('basico'), horas=N('horasNormales'), hbase=N('horasBase')||200, vh=bas/hbase;
+ const rows=[]; let rem=0,no=0;
+ const add=(name,v,type)=>{if(Math.abs(v)<.005)return;rows.push(row(name,v,type));if(type==='Remunerativo')rem+=v;else if(type==='No remunerativo')no+=v};
+ add('Sueldo básico',bas,'Remunerativo');
+ add('Antigüedad',bas*N('antiguedad')/100,'Remunerativo');
+ add('Nocturnidad estimada',vh*N('horasNocturnas'),'Remunerativo');
+ add('Horas extras 50%',vh*N('extra50')*1.5,'Remunerativo');
+ add('Horas extras 100%',vh*N('extra100')*2,'Remunerativo');
+ add('Feriados',vh*N('feriadoHoras'),'Remunerativo');
+ add('Presentismo',N('presentismo'),'Remunerativo');
+ add('Viáticos',N('viaticos'),'Remunerativo');
+ add('Otros remunerativos',N('otrosRem'),'Remunerativo');
+ let plus=N('plusValor');if($('tipoPlus').value==='hora')plus*=N('horasNormales');if($('tipoPlus').value==='porcentaje')plus=bas*plus/100;
+ const place=$('lugar').value;const pname=place==='puerto'?'Plus Puerto':place==='aeropuerto'?'Plus Aeropuerto':'Plus especial';add(pname,plus,$('plusRem').value==='si'?'Remunerativo':'No remunerativo');
+ const vd=N('valorDiario')||bas/25,vac=vd*N('diasVacTomados'),pv=N('plusVacManual')||vac*.4;add('Vacaciones',vac,'Remunerativo');add('Plus vacacional',pv,'Remunerativo');
+ add('Adicional no remunerativo',N('adicionalNoRem'),'No remunerativo');add('Otros no remunerativos',N('otrosNoRem'),'No remunerativo');
+ const suspD=bas/(N('diasBase')||30)*N('diasSusp'),suspH=vh*N('horasSusp'),suspP=$('descPres').value==='si'?N('presentismo')*N('diasSusp')/(N('diasBase')||30):0,suspV=N('viaticos')*N('diasSusp')/(N('diasBase')||30);
+ const base=rem,jub=base*N('jub')/100,os=base*N('os')/100,op=base*N('otroPct')/100,pct=base*N('descPct')/100;
+ const desc=suspD+suspH+suspP+suspV+jub+os+op+N('upsra')+N('otrosDesc')+pct+N('descManual'),neto=rem+no-desc;
+ [['Suspensión días',-suspD],['Suspensión horas',-suspH],['Presentismo por suspensión',-suspP],['Viáticos por suspensión',-suspV],['Jubilación',-jub],['Obra social',-os],['Otro aporte',-op],['UPSRA / solidario',-N('upsra')],['Otros descuentos',-N('otrosDesc')],['Descuento porcentual adicional',-pct],['Descuento manual',-N('descManual')]].forEach(x=>{if(Math.abs(x[1])>.005)rows.push(row(x[0],x[1],'Descuento'))});
+ $('rRem').textContent=money(rem);$('rNo').textContent=money(no);$('rDesc').textContent=money(desc);$('rNeto').textContent=money(neto);$('detalle').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${money(r[1])}</td><td>${r[2]}</td></tr>`).join('');$('resultado').classList.remove('hidden');
+ const rec=N('netoRecibo');$('comparacion').textContent=rec?`Neto estimado: ${money(neto)} | Neto del recibo: ${money(rec)} | Diferencia: ${money(neto-rec)}`:'Ingresá el neto del recibo para comparar.';window.last={neto,rem,no,desc};return window.last;
+}
+function form(){const o={};document.querySelectorAll('input,select').forEach(e=>o[e.id]=e.value);return o}
+function guardar(){const r=calcular(),a=JSON.parse(localStorage.getItem('seguridadLiquidaciones')||'[]');a.unshift({fecha:new Date().toLocaleString('es-AR'),data:form(),r});localStorage.setItem('seguridadLiquidaciones',JSON.stringify(a.slice(0,30)));historial()}
+function historial(){const a=JSON.parse(localStorage.getItem('seguridadLiquidaciones')||'[]');$('historial').innerHTML=a.length?a.map((x,i)=>`<div class="hist"><b>${x.data.periodo||'Sin período'}</b> — ${x.data.categoria||'Sin categoría'} — ${x.data.lugar}<br>${x.fecha} — Neto: <b>${money(x.r.neto)}</b> <button class="btn light" onclick="cargar(${i})">Cargar</button></div>`).join(''):'No hay liquidaciones guardadas.'}
+function cargar(i){const a=JSON.parse(localStorage.getItem('seguridadLiquidaciones')||'[]'),d=a[i]?.data;if(!d)return;Object.entries(d).forEach(([k,v])=>{if($(k))$(k).value=v});calcular();scrollTo({top:0,behavior:'smooth'})}
+function nuevo(){document.querySelectorAll('input').forEach(e=>{if(e.type==='number')e.value=0});$('periodo').value=new Date().toISOString().slice(0,7);$('diasBase').value=30;$('horasBase').value=200;$('jub').value=11;$('os').value=3;$('resultado').classList.add('hidden');}
+$('periodo').value=new Date().toISOString().slice(0,7);historial();
+</script></body></html>
